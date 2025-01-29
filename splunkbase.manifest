@@ -1,14 +1,14 @@
 {
   "version": "1.0",
-  "date": "2024-11-21T07:14:06.362261876Z",
+  "date": "2024-12-06T02:05:34.471564613Z",
   "hashAlgorithm": "SHA-256",
   "app": {
     "id": 1621,
-    "version": "6.0.0",
+    "version": "6.0.1",
     "files": [
       {
         "path": "app.manifest",
-        "hash": "c2a31607e93ac01ed3227573294dcee8dcb3aac245741874e9c5bb7ea4bd5b98"
+        "hash": "fa77bb15e14ebdb29b668ca71b7e0cdf9d35f84490707fbf6b5ca1d2f25f248d"
       },
       {
         "path": "appserver/static/bootstrap-dark.css",
@@ -32,7 +32,7 @@
       },
       {
         "path": "appserver/static/cim_setup.js",
-        "hash": "bf56a4f37511cc221caf694a1ea4da7656a0339cd6ff1adbe35a1da91746b1d4"
+        "hash": "8e1454a5ceec8a7ada4c0619aadf7b1101b46942da68605116ad8fcb3099e238"
       },
       {
         "path": "appserver/static/modaction_api_key.css",
@@ -88,7 +88,7 @@
       },
       {
         "path": "default/app.conf",
-        "hash": "76a2efec14cef06030d20b3289f239d00ddddbe44f90a6bdcb07df6b2ffd852a"
+        "hash": "3185f1a92845b6f1137d7aedf6c7cdc5616cb10dbe6988936d828e8b7ba73310"
       },
       {
         "path": "default/authorize.conf",
@@ -140,7 +140,7 @@
       },
       {
         "path": "default/data/models/DLP.json",
-        "hash": "60f87298ebcc2cdaed439df3d84eac4ad6f4075dd86aa922e6c52e03eb4baad2"
+        "hash": "00f78424d4d43e4471b24bace32499cf47b639eef8dd74f4d16f67baef344f2c"
       },
       {
         "path": "default/data/models/Email.json",
@@ -532,7 +532,7 @@
       },
       {
         "path": "README.txt",
-        "hash": "7ef8673cbe59ff20048b585691d17cc07c263f7e187e47ad2f29804f90f32e37"
+        "hash": "9d23c278fa44f481c35008c802e8de1fa02f026cf88350fee00c15bc9b8bf0b4"
       },
       {
         "path": "README/alert_actions.conf.example",

@@ -335,7 +335,7 @@
               "hidden": false
             }
           ],
-          "expression": "if(isnull(object_category) OR object_category=\"\",\"unknown\",object_category)"
+          "expression": "if(isnull(category) OR category=\"\",\"unknown\",category)"
         },
         {
           "calculationID": "DLP_Incidents_fillnull_dvc",
