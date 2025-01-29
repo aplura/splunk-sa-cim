@@ -45,7 +45,7 @@ def default_dropexp(x):
     a key should be dropped.
     """
     return (
-        (x.startswith('_') and x not in ['_bkt', '_cd', '_raw', '_time'])
+        (x.startswith('_') and x not in ['_bkt', '_cd', '_raw', '_time', '_guid', '_event_id'])
         or x.startswith('date_')
         or x in ['punct', 'sid', 'rid', 'orig_sid', 'orig_rid']
     )
@@ -334,18 +334,18 @@ class ModularAction(object):
 
     def addjobinfo(self):
         """ The purpose of this method is to populate the job variable
-        with the contents from REST (/services/search/jobs/<sid>)
+        with the contents from REST (/services/search/v2/jobs/<sid>)
 
-        If we're in replay mode we will not be able to hit /services/search/jobs/<sid>
+        If we're in replay mode we will not be able to hit /services/search/v2/jobs/<sid>
 
         SPL-112815 - sendalert - not all $job.<param>$ parameters come through
         """
         if self.sid and not self.job and not self.replay_mode:
             try:
                 r, c = rest.simpleRequest(
-                    'search/jobs/%s' % self.sid,
+                    'search/v2/jobs/%s' % self.sid,
                     sessionKey=self.session_key,
-                    getargs={'output_mode': 'json'}
+                    postargs={'output_mode': 'json'}
                 )
                 if r.status == http_client.OK:
                     self.job = json.loads(c)['entry'][0]['content']
@@ -830,6 +830,11 @@ class ModularAction(object):
         info_data = self.addinfo()
         info = base64.b64encode(info_data.encode('utf-8')).decode('utf-8')
 
+        # 5.1 Remove session_key from payload before persisting to cam_queue KV collection (self.CAM_QUEUE_URI)
+        # VULN-17759 & CIM-1264
+        new_settings = dict(self.settings)
+        del new_settings['session_key']
+
         # 6. Queue action
         records = []
         record = {
@@ -837,7 +842,7 @@ class ModularAction(object):
             'action_name': self.action_name,
             'sid': sid,
             'info': info,
-            'settings': json.dumps(self.settings)
+            'settings': json.dumps(new_settings)
         }
 
         for worker in _cam_workers:

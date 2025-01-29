@@ -17,7 +17,12 @@
       "fields": [
         {
           "comment": {
-            "description": "The action taken by the reporting device."
+            "description": "The action taken by the reporting device.",
+            "expected_values": [
+              "started",
+              "blocked",
+              "ended"
+            ]
           },
           "fieldName": "action",
           "displayName": "action",

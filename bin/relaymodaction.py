@@ -383,6 +383,7 @@ class RelayModAction(JsonModularInput):
                     self.save_search_info(search_info, dispatch_dir)
                     python_cmd = self.get_python_cmd(action_name, alert_actions)
                     payload['results_file'] = results_file
+                    payload['relay_session_key'] = session_key
                     name = alert_action['name']
                     app = alert_action['acl']['app']
                     script = make_splunkhome_path(["etc", "apps", app, "bin", "%s.py" % name])

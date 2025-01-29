@@ -245,7 +245,7 @@
         },
         {
           "comment": {
-            "description": "Amount of power consumed by the facilities resource, in Kw\/h."
+            "description": "Amount of power consumed by the facilities resource, in kW."
           },
           "fieldName": "power",
           "displayName": "power",

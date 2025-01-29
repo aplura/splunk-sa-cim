@@ -318,7 +318,7 @@
         },
         {
           "comment": {
-            "description": "Version of the OSI layer 3 protocol."
+            "description": "Version of the OSI layer 3 protocol, in lower case."
           },
           "fieldName": "protocol_version",
           "displayName": "protocol_version",

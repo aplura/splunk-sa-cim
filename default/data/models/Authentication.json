@@ -127,6 +127,18 @@
         },
         {
           "comment": {
+            "description": "The unique identifier assigned to the login session."
+          },
+          "fieldName": "session_id",
+          "displayName": "session_id",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "A human-readable signature name."
           },
           "fieldName": "signature",

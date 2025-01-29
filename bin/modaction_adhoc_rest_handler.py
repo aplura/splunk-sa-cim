@@ -529,8 +529,8 @@ class ModularActionAdhocRestHandler(PersistentServerConnectionApplication):
         }
 
         r, unused_c = splunk.rest.simpleRequest(
-            '/search/parser',
-            getargs=args,
+            '/search/v2/parser',
+            postargs=args,
             sessionKey=session_key,
             raiseAllErrors=True
         )

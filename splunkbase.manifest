@@ -1,14 +1,14 @@
 {
   "version": "1.0",
-  "date": "2024-03-27T17:25:49.577595227Z",
+  "date": "2024-11-21T07:14:06.362261876Z",
   "hashAlgorithm": "SHA-256",
   "app": {
     "id": 1621,
-    "version": "5.3.2",
+    "version": "6.0.0",
     "files": [
       {
         "path": "app.manifest",
-        "hash": "9361b76d50970ced0ec010c8368f61381cd79813b8729edfb48d1846fe19c167"
+        "hash": "c2a31607e93ac01ed3227573294dcee8dcb3aac245741874e9c5bb7ea4bd5b98"
       },
       {
         "path": "appserver/static/bootstrap-dark.css",
@@ -32,7 +32,7 @@
       },
       {
         "path": "appserver/static/cim_setup.js",
-        "hash": "86ccc4aaa2fdd5496749862698a9146aace799286212bf77d926134b6d866897"
+        "hash": "bf56a4f37511cc221caf694a1ea4da7656a0339cd6ff1adbe35a1da91746b1d4"
       },
       {
         "path": "appserver/static/modaction_api_key.css",
@@ -56,7 +56,7 @@
       },
       {
         "path": "bin/modaction_adhoc_rest_handler.py",
-        "hash": "2b9d28cd0d7cb37d11e77dfecf32d70ed94520383feea54508940588e78ed357"
+        "hash": "832e5e291b570e8aedf661588e23021a3406621ceaee52cfd934a13a317fe81b"
       },
       {
         "path": "bin/modaction_dequeue_handler.py",
@@ -80,7 +80,7 @@
       },
       {
         "path": "bin/relaymodaction.py",
-        "hash": "1d9d6c420f282991b0a97e8878cc1e9e0c928ba675ad6b0acb6c7673c71adedb"
+        "hash": "3020905e9d217ecd98fe1525f55d2f3ede251161b027e1ea0df2aaa1062feb0a"
       },
       {
         "path": "default/alert_actions.conf",
@@ -88,7 +88,7 @@
       },
       {
         "path": "default/app.conf",
-        "hash": "5a0923bbd98138577ceb784d7debc36d4d72c49d950c0d87dbbcd9e8aa0d5a6a"
+        "hash": "76a2efec14cef06030d20b3289f239d00ddddbe44f90a6bdcb07df6b2ffd852a"
       },
       {
         "path": "default/authorize.conf",
@@ -112,7 +112,7 @@
       },
       {
         "path": "default/data/models/Authentication.json",
-        "hash": "ad23579f8b2d4e36c1d244ce1ef9b5a4b7360898d246d320b2700659b4c55bf3"
+        "hash": "3051b7da95ab1835a354a576e4f6a9a53d023b6a0fb41671c048e30641fa295a"
       },
       {
         "path": "default/data/models/Certificates.json",
@@ -160,7 +160,7 @@
       },
       {
         "path": "default/data/models/Intrusion_Detection.json",
-        "hash": "a3fe87fc3037989df683a24e5e6edf83670f5228fb474eb2d83294336faad94e"
+        "hash": "af9ee1958a79ef7afee48cbc010a7a7e232eac74995ff2a2a573708676e8cf65"
       },
       {
         "path": "default/data/models/JVM.json",
@@ -176,15 +176,15 @@
       },
       {
         "path": "default/data/models/Network_Sessions.json",
-        "hash": "222fdf2b9d5f11d87e426c936679e58a66b8cbb83bfdc50c91289cf478ef27b5"
+        "hash": "1ab3f352cffaee541a87d3d0dd154c483a3096dfd0a9cb3309b70af387384b10"
       },
       {
         "path": "default/data/models/Network_Traffic.json",
-        "hash": "0a168f3088e83e69bd0a9353c48bbec81d394d39f6dba2d3f1766bd14449d7ee"
+        "hash": "1158daa5a7632f1c56b5722628bf61c9a391fbf6ef2a828a1e8dbcf5038334ba"
       },
       {
         "path": "default/data/models/Performance.json",
-        "hash": "47bfcd56a5da0b7d948a149b329fbc71b3b719f9ea2b01d9f93b8f8aea64a01f"
+        "hash": "6bd40edda407e912613f77f4e64478882585e165f2f5e0070df558c70d2e2d6e"
       },
       {
         "path": "default/data/models/Splunk_Audit.json",
@@ -213,6 +213,10 @@
       {
         "path": "default/data/ui/manager/relaymodaction.xml",
         "hash": "bd5c3bf6431bd22ce7dc3cb5c0d1ea8761899381224936e07656780b7a39c47a"
+      },
+      {
+        "path": "default/data/ui/nav/default.xml",
+        "hash": "0bd616da7ca62a5a6f4742fe2fdd64852fbb725d6a3a823297ca92d58dea2f3d"
       },
       {
         "path": "default/data/ui/views/cim_setup.xml",
@@ -260,7 +264,7 @@
       },
       {
         "path": "default/props.conf",
-        "hash": "e7a25cb94702a791678d82f3201619a0f3b1bae00172ca375ebf1b75307e1f01"
+        "hash": "e285337a6f34b2c3f7b2792df43a8e9b1da6a796ac15346bee88ba7172fa6c89"
       },
       {
         "path": "default/restmap.conf",
@@ -296,7 +300,7 @@
       },
       {
         "path": "lib/cim_actions.py",
-        "hash": "2e6303a36582c70f3fec04a7369d8233c3fb7aedc12be771d1ef73d8a3037cad"
+        "hash": "d7bef11b206d62a3ab5788080d4717a854b69dc74037708652177c65dd5139c3"
       },
       {
         "path": "lib/cim_models.py",
@@ -528,7 +532,7 @@
       },
       {
         "path": "README.txt",
-        "hash": "6bc109d3aa6f53993564540a5a47283242b7758811b1b19a0f2ed85dbd495991"
+        "hash": "7ef8673cbe59ff20048b585691d17cc07c263f7e187e47ad2f29804f90f32e37"
       },
       {
         "path": "README/alert_actions.conf.example",
@@ -583,7 +587,8 @@
       "versions": [
         "9.0",
         "9.1",
-        "9.2"
+        "9.2",
+        "9.3"
       ],
       "architectures": [
         "x86_64"
@@ -603,7 +608,8 @@
       "versions": [
         "9.0",
         "9.1",
-        "9.2"
+        "9.2",
+        "9.3"
       ],
       "architectures": [
         "x86_64"

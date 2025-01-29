@@ -373,7 +373,7 @@
           "outputFields": [
             {
               "comment": {
-                "description": "The name of the intrusion detected on the client (the src), such as PlugAndPlay_BO and JavaScript_Obfuscation_Fre. Note: This is a string value. Use signature_id for numeric indicators. The signature_id field is optional, so it is not included in the model.",
+                "description": "The name of the intrusion detected on the client (the src), such as PlugAndPlay_BO and JavaScript_Obfuscation_Fre.",
                 "recommended": true
               },
               "fieldName": "signature",
