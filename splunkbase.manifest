@@ -1,14 +1,14 @@
 {
   "version": "1.0",
-  "date": "2024-12-06T02:05:34.471564613Z",
+  "date": "2025-01-22T05:27:07.018853692Z",
   "hashAlgorithm": "SHA-256",
   "app": {
     "id": 1621,
-    "version": "6.0.1",
+    "version": "6.0.2",
     "files": [
       {
         "path": "app.manifest",
-        "hash": "fa77bb15e14ebdb29b668ca71b7e0cdf9d35f84490707fbf6b5ca1d2f25f248d"
+        "hash": "0231ef66b2f920f8b0d4d20f461545e280558148b2be2d5288dbfb3570a18fe0"
       },
       {
         "path": "appserver/static/bootstrap-dark.css",
@@ -32,7 +32,7 @@
       },
       {
         "path": "appserver/static/cim_setup.js",
-        "hash": "8e1454a5ceec8a7ada4c0619aadf7b1101b46942da68605116ad8fcb3099e238"
+        "hash": "aa698d01bf070f9ce3c4a00abbefd645567b0766d63486330b0aec2ab8289630"
       },
       {
         "path": "appserver/static/modaction_api_key.css",
@@ -88,7 +88,7 @@
       },
       {
         "path": "default/app.conf",
-        "hash": "3185f1a92845b6f1137d7aedf6c7cdc5616cb10dbe6988936d828e8b7ba73310"
+        "hash": "2277a4152202c9013b331736ba287c25ec76c6c8b109a26f20f13512ef4dca8d"
       },
       {
         "path": "default/authorize.conf",
@@ -532,7 +532,7 @@
       },
       {
         "path": "README.txt",
-        "hash": "9d23c278fa44f481c35008c802e8de1fa02f026cf88350fee00c15bc9b8bf0b4"
+        "hash": "2271d5782b5bae2fa7fa17eb6fc36262f0e02587bdc48ae692ae7165d02d476a"
       },
       {
         "path": "README/alert_actions.conf.example",
@@ -588,7 +588,8 @@
         "9.0",
         "9.1",
         "9.2",
-        "9.3"
+        "9.3",
+        "9.4"
       ],
       "architectures": [
         "x86_64"
@@ -609,7 +610,8 @@
         "9.0",
         "9.1",
         "9.2",
-        "9.3"
+        "9.3",
+        "9.4"
       ],
       "architectures": [
         "x86_64"

@@ -1,5 +1,5 @@
 ReadMe
-Splunk Common Information Model 6.0.1
+Splunk Common Information Model 6.0.2
 
 Copyright (C) 2005-2018 Splunk Inc. All rights reserved.
 
