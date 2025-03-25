@@ -140,14 +140,7 @@
         },
         {
           "comment": {
-            "description": "The DNS resource record type. For details, see the List of DNS record types on Wikipedia.",
-            "expected_values": [
-              "A",
-              "DNAME",
-              "MX",
-              "NS",
-              "PTR"
-            ]
+            "description": "The DNS resource record type. For details, see the List of DNS record types on on the IANA web site: https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml"
           },
           "fieldName": "record_type",
           "displayName": "record_type",
