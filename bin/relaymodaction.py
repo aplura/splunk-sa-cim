@@ -38,6 +38,7 @@ class RelayModAction(JsonModularInput):
     ACTION_NAMESPACE = "Splunk_SA_CIM"
     SEARCH_INFO_FILENAME = "info.csv"
     SEARCH_HEAD_ID_PREFIX = "sh-i-"
+    ES_URI_PREFIX = "://es-"
 
     def __init__(self, logger):
         self.logger = logger
@@ -338,6 +339,16 @@ class RelayModAction(JsonModularInput):
             with self.ensure_local_dispatch_dir(stanza_name, sid) as dispatch_dir:
                 try:
                     if is_cloud:
+                        es_lb_target = target
+                        if self.ES_URI_PREFIX in es_lb_target:
+                            # remove 'es-' load balanced prefix from URI -- CIM-1338
+                            self.logger.info("'es-' load balanced URI detected: %s", es_lb_target)
+                            target = es_lb_target[0:es_lb_target.index(self.ES_URI_PREFIX)] + \
+                                        "://" + \
+                                        es_lb_target[es_lb_target.index(self.ES_URI_PREFIX) + \
+                                        len(self.ES_URI_PREFIX):]
+                            self.logger.info("'es-' load balanced URI removed: %s", target)
+
                         # URI: Splunk Cloud Deployment
                         if server_host in target:
                             # Valid server_host already specified in Cloud stack URI
@@ -373,7 +384,7 @@ class RelayModAction(JsonModularInput):
                 except HTTPError as e:
                     self.logger.error("Failed to fetch results: %s", e)
                     if e.response.status_code == requests.codes.not_found:
-                        self.dequeue(target, key, worker, password, verify, client_cert)
+                        self.dequeue(target_new, key, worker, password, verify, client_cert)
                         self.logger.info("Dequeued missing result with key: %s, file_name: %s", key, file_name)
                 except Exception as e:
                     self.logger.error("Unknown Error - failed to fetch results: %s", e)
@@ -392,7 +403,7 @@ class RelayModAction(JsonModularInput):
                         returncode = self.run_action(cmd, payload, normalized_maxtime)
                         if returncode != 0:
                             self.logger.info("Modular alert exit with code %d", returncode)
-                        self.dequeue(target, key, worker, password, verify, client_cert)
+                        self.dequeue(target_new, key, worker, password, verify, client_cert)
                     except Exception as e:
                         self.logger.error("Exception when running modular alert %s: %s", stanza_name, e)
 
