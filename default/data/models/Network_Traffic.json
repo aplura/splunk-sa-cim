@@ -342,6 +342,18 @@
         },
         {
           "comment": {
+            "description": "The vendor-specific unique identifier of the rule. Examples: 0x00011f0000011f00, 0x00011f00-syn_flood."
+          },
+          "fieldName": "rule_id",
+          "displayName": "rule_id",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The session identifier. Multiple transactions build a session."
           },
           "fieldName": "session_id",
@@ -607,6 +619,19 @@
           "required": false,
           "multivalue": false,
           "hidden": false
+        },
+        {
+          "comment": {
+              "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+              "ta_relevant": false
+          },
+          "fieldName": "cim_entity_zone",
+          "displayName": "cim_entity_zone",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
         }
       ],
       "calculations": [
@@ -818,7 +843,7 @@
           "outputFields": [
             {
               "comment": {
-                "description": "The rule which defines the action that was taken in the network event. Note: This is a string value. Use rule_id for rule fields that are integer data types. The rule_id field is optional, so it is not included in the data model.",
+                "description": "The rule name that defines the action that was taken in the event. Note: Use rule_id field for unique ID (often numeric) of the rule.",
                 "recommended": true
               },
               "fieldName": "rule",

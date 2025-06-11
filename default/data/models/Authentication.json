@@ -103,10 +103,34 @@
         },
         {
           "comment": {
+            "description": "Full path and the name of the executable for the process that attempted the logon. For example, it is a \"Process Name\" in Windows such as `C:\\Windows\\System32\\svchost.exe`."
+          },
+          "fieldName": "process",
+          "displayName": "process",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The human-readable message associated with the authentication action (success or failure)."
           },
           "fieldName": "reason",
           "displayName": "reason",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The reason why logon failed. For example \"0xC0000234\"."
+          },
+          "fieldName": "reason_id",
+          "displayName": "reason_id",
           "type": "string",
           "fieldSearch": "",
           "required": false,
@@ -393,6 +417,19 @@
           },
           "fieldName": "vendor_account",
           "displayName": "vendor_account",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+              "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+              "ta_relevant": false
+          },
+          "fieldName": "cim_entity_zone",
+          "displayName": "cim_entity_zone",
           "type": "string",
           "fieldSearch": "",
           "required": false,

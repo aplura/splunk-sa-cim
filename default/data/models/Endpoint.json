@@ -309,6 +309,19 @@
           "required": false,
           "multivalue": false,
           "hidden": false
+        },
+        {
+          "comment": {
+              "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+              "ta_relevant": false
+          },
+          "fieldName": "cim_entity_zone",
+          "displayName": "cim_entity_zone",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
         }
       ],
       "calculations": [
@@ -780,6 +793,19 @@
           },
           "fieldName": "user_priority",
           "displayName": "user_priority",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+              "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+              "ta_relevant": false
+          },
+          "fieldName": "cim_entity_zone",
+          "displayName": "cim_entity_zone",
           "type": "string",
           "fieldSearch": "",
           "required": false,
@@ -1286,6 +1312,19 @@
           "required": false,
           "multivalue": false,
           "hidden": false
+        },
+        {
+          "comment": {
+              "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+              "ta_relevant": false
+          },
+          "fieldName": "cim_entity_zone",
+          "displayName": "cim_entity_zone",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
         }
       ],
       "calculations": [
@@ -1599,6 +1638,18 @@
         },
         {
           "comment": {
+            "description": "The binary file path or name that is tied to a process ID (PID) in events like process creation or termination."
+          },
+          "fieldName": "image",
+          "displayName": "image",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The globally unique identifier of the process assigned by the vendor_product."
           },
           "fieldName": "process_guid",
@@ -1667,6 +1718,19 @@
           },
           "fieldName": "user_priority",
           "displayName": "user_priority",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+              "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+              "ta_relevant": false
+          },
+          "fieldName": "cim_entity_zone",
+          "displayName": "cim_entity_zone",
           "type": "string",
           "fieldSearch": "",
           "required": false,
@@ -1962,6 +2026,18 @@
         },
         {
           "comment": {
+            "description": "The binary file path or name that is tied to a process ID (PID) in events like process creation or termination."
+          },
+          "fieldName": "image",
+          "displayName": "image",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The globally unique identifier of the process assigned by the vendor_product."
           },
           "fieldName": "process_guid",
@@ -2081,6 +2157,19 @@
           },
           "fieldName": "user_priority",
           "displayName": "user_priority",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+              "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+              "ta_relevant": false
+          },
+          "fieldName": "cim_entity_zone",
+          "displayName": "cim_entity_zone",
           "type": "string",
           "fieldSearch": "",
           "required": false,
