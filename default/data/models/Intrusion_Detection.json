@@ -84,6 +84,18 @@
         },
         {
           "comment": {
+            "description": "The type of the destination object, such as 'instance', 'storage', 'firewall'."
+          },
+          "fieldName": "dest_type",
+          "displayName": "dest_type",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
             "ta_relevant": false
           },

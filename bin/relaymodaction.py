@@ -343,10 +343,8 @@ class RelayModAction(JsonModularInput):
                         if self.ES_URI_PREFIX in es_lb_target:
                             # remove 'es-' load balanced prefix from URI -- CIM-1338
                             self.logger.info("'es-' load balanced URI detected: %s", es_lb_target)
-                            target = es_lb_target[0:es_lb_target.index(self.ES_URI_PREFIX)] + \
-                                        "://" + \
-                                        es_lb_target[es_lb_target.index(self.ES_URI_PREFIX) + \
-                                        len(self.ES_URI_PREFIX):]
+                            target = es_lb_target[0:es_lb_target.index(self.ES_URI_PREFIX)] + "://" + \
+                                es_lb_target[es_lb_target.index(self.ES_URI_PREFIX) + len(self.ES_URI_PREFIX):]
                             self.logger.info("'es-' load balanced URI removed: %s", target)
 
                         # URI: Splunk Cloud Deployment
@@ -359,7 +357,7 @@ class RelayModAction(JsonModularInput):
                             # Example: Different SHC member specified than server_host within AR Action
                             # * Replace with correct server_host in URI
                             # * Warn of invalid server_host
-                            sh_re = re.compile(self.SEARCH_HEAD_ID_PREFIX + '[^\.]+')
+                            sh_re = re.compile(self.SEARCH_HEAD_ID_PREFIX + '[^\.]+')  # noqa: W605
                             sh_match = sh_re.search(target)[0]
                             url_left = target[:target.find(sh_match)]
                             url_right = target[target.find(sh_match) + len(sh_match):]

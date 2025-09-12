@@ -52,6 +52,7 @@ class ModularActionQueueISE(Exception):
     '''Custom exception for Modular Action Queue REST handler'''
     pass
 
+
 class ModularActionQueueMissingFP(Exception):
     '''Custom exception for Modular Action Queue REST handler -- Results File is Missing'''
     pass
@@ -318,7 +319,7 @@ class ModularActionQutils(object):
             # read-binary usage intentional here
             with open(results_file, 'rb') as fh:
                 return base64.b64encode(fh.read()).decode('utf-8')
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             raise ModularActionQueueMissingFP('Missing results file path: {0}'.format(results_file))
 
     def validate_queue_payload(self, payload, max_items):

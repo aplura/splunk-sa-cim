@@ -1,5 +1,26 @@
 # Aplura Tracked Changes by version.
 
+## Version 6.2.0
+
+- Front End Changes in `cim_setup.js`
+
+### Data Access Data Model
+
+- Added field `dest_type`
+- Moved `signature` from `required -> recommended`
+
+### Endpoint Data Model
+
+- Simplified eval for fields `parent_process_name`, `process_name`
+- Added expected value `installed` for field `status`
+
+### Intrusion Detection Data Model
+
+- Added field `dest_type`
+
+### Updates Data Model
+
+- Changed `file_name` to multivalue
 
 ## Version 6.1.0
 
