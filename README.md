@@ -1,5 +1,23 @@
 # Aplura Tracked Changes by version.
 
+## Version 6.3.0
+
+- Front End Changes in `cim_setup.js`
+
+### Authentication Data Model
+
+- Added `result` field, with null default.
+- Updated `Failed_Authentication` model with additional OR for `result`
+- Updated `Successful_Authentication` model with additional OR for `result`
+
+### Change Data Model
+
+- Added expected values for `object_category`
+
+### Endpoint Data Model
+
+- Added expected values for `process_integrity_level`
+
 ## Version 6.2.0
 
 - Front End Changes in `cim_setup.js`

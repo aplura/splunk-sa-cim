@@ -708,8 +708,10 @@
           "comment": {
             "description": "The integrity level of the process.",
             "expected_values": [
+              "protected process",
               "system",
               "high",
+              "medium high",
               "medium",
               "low",
               "untrusted"
