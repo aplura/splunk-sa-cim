@@ -354,6 +354,26 @@
           "expression": "if(isnull(dest_dns) OR dest_dns=\"\",\"unknown\",dest_dns)"
         },
         {
+          "calculationID": "All_Sessions_fillnull_dvc",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The device that reported the session event. You can alias this from more specific fields, such as dvc_host, dvc_ip, or dvc_name.",
+                "recommended": true
+              },
+              "fieldName": "dvc",
+              "displayName": "dvc",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(dvc) OR dvc=\"\",\"unknown\",dvc)"
+        },           
+        {
           "calculationID": "All_Sessions_fillnull_user",
           "calculationType": "Eval",
           "outputFields": [
