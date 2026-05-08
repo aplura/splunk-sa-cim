@@ -7,3 +7,5 @@ This repo contains changes for Splunk_SA_CIM.
 Base Install.
 
 == v6.2.0
+
+== v6.3.0
