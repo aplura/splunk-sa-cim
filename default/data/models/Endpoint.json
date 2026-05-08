@@ -912,7 +912,7 @@
               "hidden": false
             }
           ],
-          "expression": "case(isnotnull(parent_process_name) AND parent_process_name!=\"\",parent_process_name,isnotnull(parent_process) AND parent_process!=\"\",replace(parent_process,\"^\\s*([^\\s]+).*\",\"\\1\"),1=1,\"unknown\")"
+          "expression": "case(isnotnull(parent_process_name) AND parent_process_name!=\"\", parent_process_name, isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\"), replace( parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\", \"\\1\" ), isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\"), replace( parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\", \"\\1\" ), 1=1, \"unknown\")"
         },
         {
           "calculationID": "Endpoint_Processes_fillnull_process",
@@ -952,7 +952,7 @@
               "hidden": false
             }
           ],
-          "expression": "case(isnotnull(process_name) AND process_name!=\"\",process_name,isnotnull(process) AND process!=\"\",replace(process,\"^\\s*([^\\s]+).*\",\"\\1\"),1=1,\"unknown\")"
+          "expression": "case(isnotnull(process_name) AND process_name!=\"\", process_name, isnotnull(process) AND process!=\"\" AND match(process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\"), replace( process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\", \"\\1\" ), isnotnull(process) AND process!=\"\" AND match(process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\"), replace( process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\", \"\\1\" ), 1=1, \"unknown\")"
         },
         {
           "calculationID": "Endpoint_Processes_fillnull_user",
@@ -1444,7 +1444,8 @@
                   "critical",
                   "started",
                   "stopped",
-                  "warning"
+                  "warning",
+                  "installed"
                 ],
                 "recommended": true
               },

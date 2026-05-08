@@ -41,6 +41,18 @@
         },
         {
           "comment": {
+            "description": "The type of the destination object, such as 'instance', 'storage', 'firewall', 'printer'."
+          },
+          "fieldName": "dest_type",
+          "displayName": "dest_type",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "Url of the product, application or object."
           },
           "fieldName": "dest_url",
@@ -161,13 +173,14 @@
         },
         {
           "comment": {
-            "description": "A human-readable signature name."
+            "description": "A human-readable signature name.",
+            "recommended": true
           },
           "fieldName": "signature",
           "displayName": "signature",
           "type": "string",
           "fieldSearch": "",
-          "required": true,
+          "required": false,
           "multivalue": false,
           "hidden": false
         },
