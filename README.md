@@ -15,23 +15,23 @@ This repo contains changes for Splunk_SA_CIM.
 
 - Front End Changes in `cim_setup.js`
 
-## alert_actions.conf
+### alert_actions.conf
 
 - Content Removed (empty file)
 
-## Other conf file updates
+### Other conf file updates
 
 - `commands.conf`, `inputs.conf`, `restmap.conf`
     - Added `python.required` flag for Splunk 10.2+
 
-## Python Changes
+### Python Changes
 
 - base_modinput.py
     - added `python.required` validation exception
 - cim_actions.py
     - Added new CSV Sanitized Reader Method
 
-## Change Data Model
+### Change Data Model
 
 - Removed Constraint `NOT (object_category=file OR object_category=directory OR object_category=registry)`
 
@@ -39,33 +39,33 @@ This repo contains changes for Splunk_SA_CIM.
 |-----------|----------|----------|-------------|------------|-------------------------|
 | `results` | `string` | No       | Modified    |            | Removed expected values |
 
-## Endpoint Data Model
+### Endpoint Data Model
 
 | Field | Type | Required | Change Type | Field Type | Change |
 |-------|------|----------|-------------|------------|--------|
 
-## Intrusion Detection Data Model
+### Intrusion Detection Data Model
 
 | Field     | Type     | Required | Change Type | Field Type | Change |
 |-----------|----------|----------|-------------|------------|--------|
 | `src_ip`  | `string` | No       | New         | Passed     |        |
 | `dest_ip` | `string` | No       | New         | Passed     |        | 
 
-## Malware Data Model
+### Malware Data Model
 
 | Field     | Type     | Required | Change Type | Field Type | Change                                     |
 |-----------|----------|----------|-------------|------------|--------------------------------------------|
 | `src_ip`  | `string` | No       | New         | Passed     |                                            |
 | `dest_ip` | `string` | No       | New         | Passed     | `Malware_Attacks` and `Malware_Operations` | 
 
-## Network Resolution Data Model
+### Network Resolution Data Model
 
 | Field     | Type     | Required | Change Type | Field Type | Change |
 |-----------|----------|----------|-------------|------------|--------|
 | `src_ip`  | `string` | No       | New         | Passed     |        |
 | `dest_ip` | `string` | No       | New         | Passed     |        | 
 
-## Web Data Model
+### Web Data Model
 
 | Field     | Type     | Required | Change Type | Field Type | Change |
 |-----------|----------|----------|-------------|------------|--------|
