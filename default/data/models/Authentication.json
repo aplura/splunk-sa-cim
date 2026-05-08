@@ -563,6 +563,25 @@
             }
           ],
           "expression": "if(isnull(user) OR user=\"\",\"unknown\",user)"
+        },
+        {
+          "calculationID": "Authentication_fillnull_result",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The result of the authentication attempt for audittrailv2 sourcetypes."
+              },
+              "fieldName": "result",
+              "displayName": "result",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(result) OR result=\"\",\"unknown\",result)"
         }
       ],
       "constraints": [
@@ -591,7 +610,7 @@
       ],
       "constraints": [
         {
-          "search": "action=\"failure\""
+          "search": "action=\"failure\" OR result=\"failure\""
         }
       ],
       "children": [
@@ -615,7 +634,7 @@
       ],
       "constraints": [
         {
-          "search": "action=\"success\""
+          "search": "action=\"success\" OR result=\"success\""
         }
       ],
       "children": [
