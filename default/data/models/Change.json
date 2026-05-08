@@ -417,10 +417,7 @@
           "outputFields": [
             {
               "comment": {
-                "description": "The vendor-specific result of a change, or clarification of an action status. For example, status=failure may be accompanied by result=blocked by policy or result=disk full. Note: result is a string. Use msg_severity_id for severity ID fields that are integer data types.",
-                "expected_values": [
-                  "lockout"
-                ],
+                "description": "The vendor-specific result of a change, or clarification of an action status. For example, status=failure may be accompanied by result=blocked by policy or result=disk full.",
                 "recommended": true
               },
               "fieldName": "result",
@@ -571,7 +568,7 @@
       ],
       "constraints": [
         {
-          "search": "(`cim_Change_indexes`) tag=change NOT (object_category=file OR object_category=directory OR object_category=registry)"
+          "search": "(`cim_Change_indexes`) tag=change"
         }
       ],
       "children": [

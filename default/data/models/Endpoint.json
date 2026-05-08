@@ -862,7 +862,7 @@
           "outputFields": [
             {
               "comment": {
-                "description": "Original name of the file not including path.",
+                "description": "Original name of the file, not including path. Sometimes this field is similar to process name but the two do not always match, such as process_name=pwsh and original_file_name=powershell.exe to detect renamed instances of any process executing.",
                 "recommended": true
               },
               "fieldName": "original_file_name",
@@ -1672,6 +1672,78 @@
         },
         {
           "comment": {
+            "description": "The executable name of the parent process."
+          },
+          "fieldName": "parent_process_exec",
+          "displayName": "parent_process_exec",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The digest(s) of the parent process, such as <md5>, <sha1>, etc."
+          },
+          "fieldName": "parent_process_hash",
+          "displayName": "parent_process_hash",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The numeric identifier of the parent process assigned by the operating system."
+          },
+          "fieldName": "parent_process_id",
+          "displayName": "parent_process_id",
+          "type": "number",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The globally unique identifier of the parent process assigned by the vendor_product."
+          },
+          "fieldName": "parent_process_guid",
+          "displayName": "parent_process_guid",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The file path of the parent process, such as C:\\Windows\\System32\\notepad.exe."
+          },
+          "fieldName": "parent_process_path",
+          "displayName": "parent_process_path",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },        
+        {
+          "comment": {
+            "description": "The executable name of the process."
+          },
+          "fieldName": "process_exec",
+          "displayName": "process_exec",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The globally unique identifier of the process assigned by the vendor_product."
           },
           "fieldName": "process_guid",
@@ -1684,10 +1756,34 @@
         },
         {
           "comment": {
+            "description": "The digest(s) of the process, such as <md5>, <sha1>, etc."
+          },
+          "fieldName": "process_hash",
+          "displayName": "process_hash",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The numeric identifier of the process assigned by the operating system."
           },
           "fieldName": "process_id",
           "displayName": "process_id",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The file path of the process, such as C:\\Windows\\System32\\notepad.exe."
+          },
+          "fieldName": "process_path",
+          "displayName": "process_path",
           "type": "string",
           "fieldSearch": "",
           "required": false,
@@ -1909,6 +2005,84 @@
           "expression": "if(isnum(file_size),file_size,null())"
         },
         {
+          "calculationID": "Endpoint_Filesystem_fillnull_parent_process",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The full command string of the parent process"
+              },
+              "fieldName": "parent_process",
+              "displayName": "parent_process",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(parent_process) OR parent_process=\"\",\"unknown\",parent_process)"
+        },
+        {
+          "calculationID": "Endpoint_Filesystem_fillnull_parent_process_name",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The friendly name of the parent process, such as notepad.exe."
+              },
+              "fieldName": "parent_process_name",
+              "displayName": "parent_process_name",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "case(isnotnull(parent_process_name) AND parent_process_name!=\"\", parent_process_name, isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\"), replace( parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\", \"\\1\" ), isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\"), replace( parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\", \"\\1\" ), 1=1, \"unknown\")"
+        },
+        {
+          "calculationID": "Endpoint_Filesystem_fillnull_process",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The full command string of the spawned process. Such as C:\\WINDOWS\\system32\\cmd.exe \/c \"\"C:\\Program Files\\SplunkUniversalForwarder\\etc\\system\\bin\\powershell.cmd\" --scheme\"",
+                "recommended": true
+              },
+              "fieldName": "process",
+              "displayName": "process",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(process) OR process=\"\",\"unknown\",process)"
+        },
+        {
+          "calculationID": "Endpoint_Filesystem_fillnull_process_name",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The friendly name of the process, such as notepad.exe.",
+                "recommended": true
+              },
+              "fieldName": "process_name",
+              "displayName": "process_name",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "case(isnotnull(process_name) AND process_name!=\"\", process_name, isnotnull(process) AND process!=\"\" AND match(process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\"), replace( process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\", \"\\1\" ), isnotnull(process) AND process!=\"\" AND match(process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\"), replace( process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\", \"\\1\" ), 1=1, \"unknown\")"
+        },
+        {
           "calculationID": "Endpoint_Filesystem_fillnull_user",
           "calculationType": "Eval",
           "outputFields": [
@@ -2060,6 +2234,78 @@
         },
         {
           "comment": {
+            "description": "The executable name of the parent process."
+          },
+          "fieldName": "parent_process_exec",
+          "displayName": "parent_process_exec",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The digest(s) of the parent process, such as <md5>, <sha1>, etc."
+          },
+          "fieldName": "parent_process_hash",
+          "displayName": "parent_process_hash",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The numeric identifier of the parent process assigned by the operating system."
+          },
+          "fieldName": "parent_process_id",
+          "displayName": "parent_process_id",
+          "type": "number",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The globally unique identifier of the parent process assigned by the vendor_product."
+          },
+          "fieldName": "parent_process_guid",
+          "displayName": "parent_process_guid",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The file path of the parent process, such as C:\\Windows\\System32\\notepad.exe."
+          },
+          "fieldName": "parent_process_path",
+          "displayName": "parent_process_path",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },        
+        {
+          "comment": {
+            "description": "The executable name of the process."
+          },
+          "fieldName": "process_exec",
+          "displayName": "process_exec",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },        
+        {
+          "comment": {
             "description": "The globally unique identifier of the process assigned by the vendor_product."
           },
           "fieldName": "process_guid",
@@ -2072,10 +2318,34 @@
         },
         {
           "comment": {
+            "description": "The digest(s) of the process, such as <md5>, <sha1>, etc."
+          },
+          "fieldName": "process_hash",
+          "displayName": "process_hash",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The numeric identifier of the process assigned by the operating system."
           },
           "fieldName": "process_id",
           "displayName": "process_id",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The file path of the process, such as C:\\Windows\\System32\\notepad.exe."
+          },
+          "fieldName": "process_path",
+          "displayName": "process_path",
           "type": "string",
           "fieldSearch": "",
           "required": false,
@@ -2245,6 +2515,84 @@
             }
           ],
           "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
+        },
+        {
+          "calculationID": "Endpoint_Registry_fillnull_parent_process",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The full command string of the parent process"
+              },
+              "fieldName": "parent_process",
+              "displayName": "parent_process",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(parent_process) OR parent_process=\"\",\"unknown\",parent_process)"
+        },
+        {
+          "calculationID": "Endpoint_Registry_fillnull_parent_process_name",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The friendly name of the parent process, such as notepad.exe."
+              },
+              "fieldName": "parent_process_name",
+              "displayName": "parent_process_name",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "case(isnotnull(parent_process_name) AND parent_process_name!=\"\", parent_process_name, isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\"), replace( parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\", \"\\1\" ), isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\"), replace( parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\", \"\\1\" ), 1=1, \"unknown\")"
+        },
+        {
+          "calculationID": "Endpoint_Registry_fillnull_process",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The full command string of the spawned process. Such as C:\\WINDOWS\\system32\\cmd.exe \/c \"\"C:\\Program Files\\SplunkUniversalForwarder\\etc\\system\\bin\\powershell.cmd\" --scheme\"",
+                "recommended": true
+              },
+              "fieldName": "process",
+              "displayName": "process",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(process) OR process=\"\",\"unknown\",process)"
+        },
+        {
+          "calculationID": "Endpoint_Registry_fillnull_process_name",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The friendly name of the process, such as notepad.exe.",
+                "recommended": true
+              },
+              "fieldName": "process_name",
+              "displayName": "process_name",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "case(isnotnull(process_name) AND process_name!=\"\", process_name, isnotnull(process) AND process!=\"\" AND match(process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\"), replace( process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\", \"\\1\" ), isnotnull(process) AND process!=\"\" AND match(process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\"), replace( process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\", \"\\1\" ), 1=1, \"unknown\")"
         },
         {
           "calculationID": "Endpoint_Registry_fillnull_registry_path",

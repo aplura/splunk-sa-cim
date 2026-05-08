@@ -284,7 +284,7 @@ class BaseModularInput(object):
                 cleaned_params[name] = None if value == '' else all_args[name].to_python(value)
 
             # Throw an exception if the argument could not be found
-            elif name not in ['_app', 'python.version', 'run_only_one']:
+            elif name not in ['_app', 'python.version', 'run_only_one', 'python.required']:
                 raise FieldValidationException(
                     "The parameter '%s' is not a valid argument" % name)
 
