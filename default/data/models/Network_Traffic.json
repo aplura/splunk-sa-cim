@@ -294,6 +294,18 @@
         },
         {
           "comment": {
+            "description": "The globally unique identifier of the process assigned by the vendor_product."
+          },
+          "fieldName": "process_guid",
+          "displayName": "process_guid",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The numeric identifier of the process assigned by the operating system."
           },
           "fieldName": "process_id",
