@@ -41,8 +41,21 @@ This repo contains changes for Splunk_SA_CIM.
 
 ### Endpoint Data Model
 
-| Field | Type | Required | Change Type | Field Type | Change |
-|-------|------|----------|-------------|------------|--------|
+| Field                 | Type     | Required | Change Type  | Field Type | Change                            |
+|-----------------------|----------|----------|--------------|------------|-----------------------------------|
+| `original_file_name`  |          |          | Modification |            | Description change                |
+| `parent_process_exec` | `string` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `parent_process_hash` | `string` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `parent_process_id`   | `number` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `parent_process_guid` | `string` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `parent_process_path` | `string` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `process_exec`        | `string` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `process_hash`        | `string` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `process_path`        | `string` | No       | New          | Passed     | Objects: `Filesystem`, `Registry` |
+| `parent_process`      | `string` | No       | New          | Calculated | Objects: `Filesystem`, `Registry` |
+| `parent_process_name` | `string` | No       | New          | Calculated | Objects: `Filesystem`, `Registry` |
+| `process`             | `string` | No       | New          | Calculated | Objects: `Filesystem`, `Registry` |
+| `process_name`        | `string` | No       | New          | Calculated | Objects: `Filesystem`, `Registry` |
 
 ### Intrusion Detection Data Model
 
