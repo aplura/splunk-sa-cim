@@ -36,6 +36,32 @@ except NameError:
 csv.field_size_limit(10485760)
 
 
+def sanitize_csv_reader(fh, logger=None):
+    """
+    Generator that yields lines from a file handle with null bytes removed.
+    Python's csv module cannot handle null bytes (\\x00) in CSV data.
+
+    Args:
+        fh: File handle opened in text mode
+        logger: Optional logger for reporting null byte removal
+
+    Yields:
+        Lines with null bytes stripped
+    """
+    null_byte_detected = False
+    for line in fh:
+        if '\x00' in line:
+            if not null_byte_detected and logger:
+                logger.warning(
+                    'Null bytes detected in results file. '
+                    'Stripping null bytes to allow CSV parsing. '
+                    'This may occur with base64-decoded binary data.'
+                )
+                null_byte_detected = True
+            line = line.replace('\x00', '')
+        yield line
+
+
 def truthy_strint_from_dict(d, k):
     return True if isinstance(d.get(k, None), (basestring, int)) and (d[k] or d[k] == 0) else False
 
