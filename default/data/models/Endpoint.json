@@ -917,6 +917,25 @@
           "expression": "case(isnotnull(parent_process_name) AND parent_process_name!=\"\", parent_process_name, isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\"), replace( parent_process, \"^\\s*(?:\\\"..*\\\\\\([^\\\"]+)\\\").*\", \"\\1\" ), isnotnull(parent_process) AND parent_process!=\"\" AND match(parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\"), replace( parent_process, \"^(?:..*\\\\\\)?([^\\s\\\"]+)(?=\\s|$).*\", \"\\1\" ), 1=1, \"unknown\")"
         },
         {
+          "calculationID": "Endpoint_Processes_fillnull_parent_user",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "The original user under which the process was created. This field is extracted for example when the process was originally created under one user's account (this CIM field) but a new process is spawned belonging to another user (the \"user\" CIM field)"
+              },
+              "fieldName": "parent_user",
+              "displayName": "parent_user",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": false,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(parent_user) OR parent_user=\"\",\"unknown\",parent_user)"
+        },        
+        {
           "calculationID": "Endpoint_Processes_fillnull_process",
           "calculationType": "Eval",
           "outputFields": [
@@ -962,7 +981,7 @@
           "outputFields": [
             {
               "comment": {
-                "description": "The user account which spawned the process.",
+                "description": "The current user linked to the running process.",
                 "recommended": true
               },
               "fieldName": "user",
