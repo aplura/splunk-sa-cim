@@ -1,15 +1,17 @@
 # Splunk_SA_CIM Tracking
 
-This repo contains changes for Splunk_SA_CIM.
+This repo contains change tracking for Splunk_SA_CIM.
+The official Splunk Provided app is located at https://splunkbase.splunk.com/app/1621.
+The official Splunk Documentation is located at http://docs.splunk.com/Documentation/CIM/.
 
 ## Field Types
 
 - Lookup
-    - Provided to the data model via Lookup, other automatic method on the sourcetypes (assets and identities, etc)
+    - Provided to the data model via Lookup or other automatic method on the sourcetypes (assets and identities, etc)
 - Calculated
     - `eval` calculation
 - Passed
-    - Extracted prior to the data model, and passed into the model from a previous extraction
+    - Extracted prior to the data model and passed into the model from a previous extraction
 
 ## Version 8.5.0
 
