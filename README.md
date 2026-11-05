@@ -13,6 +13,10 @@ The official Splunk Documentation is located at http://docs.splunk.com/Documenta
 - Passed
     - Extracted prior to the data model and passed into the model from a previous extraction
 
+## Version 8.7.0
+
+See file `v8.6.0-v8.7.0-changes.md`
+
 ## Version 8.6.0
 
 See file `v8.5.0-v8.6.0-changes.md`
