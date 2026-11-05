@@ -216,19 +216,27 @@ app_name = "Splunk_SA_CIM"
     <script src="${make_url('/static/js/i18n.js')}"></script>
     <script src="${make_url('/i18ncatalog?autoload=1')}"></script>
     % if theme is not UNDEFINED:
-    <link rel="stylesheet" type="text/css"
-        href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-%s.css' % theme)}" />
+    <link id="cim-bootstrap-theme" rel="stylesheet" type="text/css"
+        href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-%s.css' % theme)}"
+        data-light-href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-enterprise.css')}"
+        data-dark-href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-dark.css')}" />
     % else:
-    <link rel="stylesheet" type="text/css"
-        href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-enterprise.css')}" />
+    <link id="cim-bootstrap-theme" rel="stylesheet" type="text/css"
+        href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-enterprise.css')}"
+        data-light-href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-enterprise.css')}"
+        data-dark-href="${make_url('/static/app/Splunk_SA_CIM/bootstrap-dark.css')}" />
     % endif
 
     % if theme is not UNDEFINED:
-    <link rel="stylesheet" type="text/css"
-        href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-%s.css' % theme)}" />
+    <link id="cim-setup-theme" rel="stylesheet" type="text/css"
+        href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-%s.css' % theme)}"
+        data-light-href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-enterprise.css')}"
+        data-dark-href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-dark.css')}" />
     % else:
-    <link rel="stylesheet" type="text/css"
-        href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-enterprise.css')}" />
+    <link id="cim-setup-theme" rel="stylesheet" type="text/css"
+        href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-enterprise.css')}"
+        data-light-href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-enterprise.css')}"
+        data-dark-href="${make_url('/static/app/Splunk_SA_CIM/cim_setup-dark.css')}" />
     % endif
 
     <script>

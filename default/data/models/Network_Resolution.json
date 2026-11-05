@@ -300,6 +300,57 @@
         },
         {
           "comment": {
+            "description": "The user account associated with the DNS event."
+          },
+          "fieldName": "user",
+          "displayName": "user",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The business unit of the user for the DNS event.",
+            "ta_relevant": false
+          },
+          "fieldName": "user_bunit",
+          "displayName": "user_bunit",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The category of the user for the DNS event.",
+            "ta_relevant": false
+          },
+          "fieldName": "user_category",
+          "displayName": "user_category",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The priority of the user for the DNS event.",
+            "ta_relevant": false
+          },
+          "fieldName": "user_priority",
+          "displayName": "user_priority",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },        
+        {
+          "comment": {
               "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
               "ta_relevant": false
           },
@@ -501,7 +552,7 @@
               "hidden": false
             }
           ]
-        },
+        },     
         {
           "calculationID": "DNS_vendor_product",
           "calculationType": "Eval",

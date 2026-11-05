@@ -12,8 +12,39 @@
   width: 70%;
   min-width: 1000px;
 }
+#cim_setup_container .setupTabs {
+  box-sizing: border-box;
+  height: 38px;
+  padding: 5px 5px 0;
+  column-gap: 0;
+}
+#cim_setup_container .setupTabs::before {
+  border-bottom-width: 0;
+}
+#cim_setup_container .setupTabs > [role="tab"] {
+  padding-right: 15px;
+  padding-left: 15px;
+}
 #cim_setup_container .modal-footer {
   border-top: 1px solid #C3CBD4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#cim_setup_container .modal-footer::before,
+#cim_setup_container .modal-footer::after {
+  display: none;
+  content: none;
+}
+#cim_setup_container .modal-footer > .cim-footer-action {
+  float: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 80px;
+  min-height: 32px;
+  box-sizing: border-box;
 }
 #cim_setup_container .modal-header {
   border-bottom: 1px solid #C3CBD4;
@@ -118,6 +149,45 @@
 .sideTabName {
   line-height: 20px;
 }
+.sideTabItem > .dataModelSelection {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.sideTabItem > .dataModelSelection:focus-visible {
+  outline: 2px solid #006d9c;
+  outline-offset: -2px;
+}
+.sideTabItem > .dataModelPresentation {
+  display: block;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.sideTabItem > .dataModelPresentation .sideTabName,
+.sideTabItem > .dataModelPresentation .indexes_list {
+  display: block;
+}
+.dataModelDetails {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 0 0.5em;
+}
+.dataModelDetails > .indexes_list {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 .indexes_list {
   color: #999;
   font-size: 11px;
@@ -127,6 +197,11 @@
   color: #1e93c6;
   cursor: pointer;
   padding-left: 0.5em;
+}
+.sideTabItem.has-show-more .dataModelDetails > .more {
+  flex: 0 0 auto;
+  padding-left: 0;
+  pointer-events: auto;
 }
 .col-visibility label.checkbox {
   padding: 2px 0px 2px 0px;
@@ -149,11 +224,6 @@
 
 .table-chrome.table-striped>tbody>tr:nth-child(odd)>td {
   min-width: 20px;
-}
-
-.nav.nav-tabs {
-  border-top-style: none;
-  border-bottom: none;
 }
 
 .control.btn-group {
@@ -209,72 +279,92 @@ a.dropdown-toggle.disabled {
   margin-left: 180px;
 }
 
-.settingsForm.form-horizontal input + .help-block,
-.settingsForm.form-horizontal select + .help-block,
+.settingsForm.form-horizontal .cim-sui-text + .help-block,
+.settingsForm.form-horizontal .cim-sui-select + .help-block,
+.settingsForm.form-horizontal .time-modifier-field + .help-block,
 .settingsForm.form-horizontal textarea + .help-block {
   margin-top: 10px;
 }
 
-.settingsForm.form-horizontal .controls > input[type="text"] {
-  display: inline-block;
+.settingsForm.form-horizontal .controls > .settings-text {
+  display: inline-flex;
   width: 390px;
+  max-width: 100%;
 }
 
-.settingsForm.form-horizontal .controls > select {
-  display: inline-block;
+.settingsForm.form-horizontal .controls > .cim-sui-select {
+  display: inline-flex;
   width: auto;
   min-width: 95px;
   max-width: 220px;
 }
 
-.settingsForm.form-horizontal .controls > input[type="checkbox"] {
-  margin-top: 2px;
-}
-
-.settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  margin: 6px 0 0;
-  border: 1px solid #9da5b0;
-  border-radius: 2px;
-  background: #fff;
+#cim_setup_container .cim-sui-text {
+  height: 32px;
+  min-height: 32px;
   box-sizing: border-box;
-  vertical-align: top;
 }
 
-.settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"]:checked {
-  background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 12px 12px;
+#cim_setup_container .cim-sui-text > input.cim-sui-text-input,
+#cim_setup_container .cim-sui-text > input.cim-sui-text-input:hover,
+#cim_setup_container .cim-sui-text > input.cim-sui-text-input:focus,
+#cim_setup_container .cim-sui-text > input.cim-sui-text-input:active,
+#cim_setup_container .cim-sui-text > input.cim-sui-text-input[disabled],
+#cim_setup_container .cim-sui-text > input.cim-sui-text-input[aria-disabled="true"],
+#cim_setup_container .cim-sui-text > input.cim-sui-text-input[aria-invalid="true"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  box-shadow: none;
+  box-sizing: border-box;
 }
 
-.settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"]:disabled {
-  background-color: #f5f6f7;
-  border-color: #c3cbd4;
-  cursor: not-allowed;
+#cim_setup_container .settingsForm .cim-sui-checkbox.settings-checkbox input[type="checkbox"] {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
 .settingsForm.form-horizontal .time-modifier-field {
   display: inline-flex;
   align-items: center;
+  width: 342px;
+  max-width: 100%;
 }
 
 .settingsForm.form-horizontal .time-modifier-field .time-modifier-input {
-  display: inline-block;
+  display: inline-flex;
+  flex: 0 0 247px;
   width: 247px;
   margin-right: 0;
 }
 
 .settingsForm.form-horizontal .time-modifier-field .time-modifier-unit {
-  display: inline-block;
+  display: inline-flex;
+  flex: 0 0 95px;
   width: 95px;
+  min-width: 95px;
+  max-width: 95px;
   margin-left: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.settingsForm.form-horizontal .controls > .schedule-priority-select {
+  width: auto;
+  min-width: 95px;
+  max-width: 220px;
 }
 
 .settingsForm.form-horizontal .indexes-whitelist-help.help-block {
@@ -310,17 +400,11 @@ a.dropdown-toggle.disabled {
     margin: 12px 20px;
 }
 
-.manageAPIKeyForm input{
-    width: 100%
-}
-
 .manageAPIKeyForm .actionButtons {
-    text-align: center;
-}
-
-.manageAPIKeyForm .actionButtons a {
-    width: 30%;
-    margin: 2px;
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  width: 100%;
 }
 
 .manageAPIKeyForm .apiField {
@@ -332,59 +416,26 @@ a.dropdown-toggle.disabled {
   margin-bottom: 6px;
 }
 
-.manageAPIKeyForm .actionButtons .btn {
-  display: inline-block;
+.manageAPIKeyForm .actionButtons .api-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 80px;
+  min-height: 32px;
   box-sizing: border-box;
 }
 
-.manageAPIKeyForm .actionButtons .btn.btn-primary {
-  color: #fff;
-  background-color: #5dbb5a;
-  border-color: #5dbb5a;
-}
-
-.manageAPIKeyForm .actionButtons .btn.btn-primary:hover,
-.manageAPIKeyForm .actionButtons .btn.btn-primary:focus {
-  color: #fff;
-  background-color: #53a051;
-  border-color: #53a051;
-}
-
-.manageAPIKeyForm .actionButtons .btn.btn-delete {
-  color: #5f6b7a;
-  background-color: #eceff3;
-  border: 1px solid #b5bfcb;
-}
-
-.manageAPIKeyForm .actionButtons .btn.btn-delete:hover,
-.manageAPIKeyForm .actionButtons .btn.btn-delete:focus {
-  color: #39424e;
-  background-color: #e2e7ee;
-  border-color: #a9b4c2;
-}
-
-.manageAPIKeyForm .actionButtons .btn.nopointer,
-.manageAPIKeyForm .actionButtons .btn.nopointer:hover,
-.manageAPIKeyForm .actionButtons .btn.nopointer:focus {
-  opacity: 0.55;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.manageAPIKeyForm .status {
-    padding: 20px 20px 0;
-    text-align: center;
-}
-
-.manageAPIKeyForm .status.status-success {
-  color: #53a051;
-}
-
-.manageAPIKeyForm .status.status-error {
-  color: #dc4e41;
+.manageAPIKeyForm .apiStatus {
+  margin-top: 20px;
 }
 
 .manageAPIKeyForm .apiForm {
-    width: 350px;
-    margin-top: 20px;
+  width: 350px;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.manageAPIKeyForm .apiField > .cim-sui-text {
+  width: 100%;
 }

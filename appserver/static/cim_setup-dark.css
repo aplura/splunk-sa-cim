@@ -19,8 +19,44 @@ body.dark {
     min-width: 1000px;
 }
 
+.dark #cim_setup_container .setupTabs {
+    box-sizing: border-box;
+    height: 38px;
+    padding: 5px 5px 0;
+    column-gap: 0;
+}
+
+.dark #cim_setup_container .setupTabs::before {
+    border-bottom-width: 0;
+}
+
+.dark #cim_setup_container .setupTabs > [role="tab"] {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 .dark #cim_setup_container .modal-footer {
     border-top: 1px solid #C3CBD4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dark #cim_setup_container .modal-footer::before,
+.dark #cim_setup_container .modal-footer::after {
+    display: none;
+    content: none;
+}
+
+.dark #cim_setup_container .modal-footer > .cim-footer-action {
+    float: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-width: 80px;
+    min-height: 32px;
+    box-sizing: border-box;
 }
 
 .dark #cim_setup_container .modal-header {
@@ -126,6 +162,7 @@ body.dark {
 }
 
 .dark .sideTabItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
     border-right: 3px solid #E1E6EB;
 }
 
@@ -140,11 +177,57 @@ body.dark {
 }
 
 .dark .sideTabItem.selected {
+    background-color: rgba(255, 255, 255, 0.1);
     border-right: 3px solid #007ABD;
 }
 
 .dark .sideTabName {
     line-height: 20px;
+}
+
+.dark .sideTabItem > .dataModelSelection {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dark .sideTabItem > .dataModelSelection:focus-visible {
+    outline: 2px solid #45a7f5;
+    outline-offset: -2px;
+}
+
+.dark .sideTabItem > .dataModelPresentation {
+    display: block;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.dark .sideTabItem > .dataModelPresentation .sideTabName,
+.dark .sideTabItem > .dataModelPresentation .indexes_list {
+    display: block;
+}
+
+.dark .dataModelDetails {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    gap: 0 0.5em;
+}
+
+.dark .dataModelDetails > .indexes_list {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .dark .indexes_list {
@@ -157,6 +240,12 @@ body.dark {
     color: #1e93c6;
     cursor: pointer;
     padding-left: 0.5em;
+}
+
+.dark .sideTabItem.has-show-more .dataModelDetails > .more {
+    flex: 0 0 auto;
+    padding-left: 0;
+    pointer-events: auto;
 }
 
 .dark .col-visibility label.checkbox {
@@ -183,11 +272,6 @@ body.dark {
 
 .dark .table-chrome.table-striped>tbody>tr:nth-child(odd)>td {
     min-width: 20px;
-}
-
-.dark .nav.nav-tabs {
-    border-top-style: none;
-    border-bottom: none;
 }
 
 .dark .control.btn-group {
@@ -243,72 +327,92 @@ body.dark {
     margin-left: 180px;
 }
 
-.dark .settingsForm.form-horizontal input + .help-block,
-.dark .settingsForm.form-horizontal select + .help-block,
+.dark .settingsForm.form-horizontal .cim-sui-text + .help-block,
+.dark .settingsForm.form-horizontal .cim-sui-select + .help-block,
+.dark .settingsForm.form-horizontal .time-modifier-field + .help-block,
 .dark .settingsForm.form-horizontal textarea + .help-block {
     margin-top: 10px;
 }
 
-.dark .settingsForm.form-horizontal .controls > input[type="text"] {
-    display: inline-block;
+.dark .settingsForm.form-horizontal .controls > .settings-text {
+    display: inline-flex;
     width: 390px;
+    max-width: 100%;
 }
 
-.dark .settingsForm.form-horizontal .controls > select {
-    display: inline-block;
+.dark .settingsForm.form-horizontal .controls > .cim-sui-select {
+    display: inline-flex;
     width: auto;
     min-width: 95px;
     max-width: 220px;
 }
 
-.dark .settingsForm.form-horizontal .controls > input[type="checkbox"] {
-    margin-top: 2px;
-}
-
-.dark .settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    margin: 6px 0 0;
-    border: 1px solid #9da5b0;
-    border-radius: 2px;
-    background: #fff;
+.dark #cim_setup_container .cim-sui-text {
+    height: 32px;
+    min-height: 32px;
     box-sizing: border-box;
-    vertical-align: top;
 }
 
-.dark .settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"]:checked {
-    background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 12px 12px;
+.dark #cim_setup_container .cim-sui-text > input.cim-sui-text-input,
+.dark #cim_setup_container .cim-sui-text > input.cim-sui-text-input:hover,
+.dark #cim_setup_container .cim-sui-text > input.cim-sui-text-input:focus,
+.dark #cim_setup_container .cim-sui-text > input.cim-sui-text-input:active,
+.dark #cim_setup_container .cim-sui-text > input.cim-sui-text-input[disabled],
+.dark #cim_setup_container .cim-sui-text > input.cim-sui-text-input[aria-disabled="true"],
+.dark #cim_setup_container .cim-sui-text > input.cim-sui-text-input[aria-invalid="true"] {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+    box-sizing: border-box;
 }
 
-.dark .settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"]:disabled {
-    background-color: #f5f6f7;
-    border-color: #c3cbd4;
-    cursor: not-allowed;
+.dark #cim_setup_container .settingsForm .cim-sui-checkbox.settings-checkbox input[type="checkbox"] {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
 .dark .settingsForm.form-horizontal .time-modifier-field {
     display: inline-flex;
     align-items: center;
+    width: 342px;
+    max-width: 100%;
 }
 
 .dark .settingsForm.form-horizontal .time-modifier-field .time-modifier-input {
-    display: inline-block;
+    display: inline-flex;
+    flex: 0 0 247px;
     width: 247px;
     margin-right: 0;
 }
 
 .dark .settingsForm.form-horizontal .time-modifier-field .time-modifier-unit {
-    display: inline-block;
+    display: inline-flex;
+    flex: 0 0 95px;
     width: 95px;
+    min-width: 95px;
+    max-width: 95px;
     margin-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+.dark .settingsForm.form-horizontal .controls > .schedule-priority-select {
+    width: auto;
+    min-width: 95px;
+    max-width: 220px;
 }
 
 .dark .settingsForm.form-horizontal .indexes-whitelist-help.help-block {
@@ -346,17 +450,11 @@ body.dark {
     margin: 12px 20px;
 }
 
-.dark .manageAPIKeyForm input {
-    width: 100%
-}
-
 .dark .manageAPIKeyForm .actionButtons {
-    text-align: center;
-}
-
-.dark .manageAPIKeyForm .actionButtons a {
-    width: 30%;
-    margin: 2px;
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
 }
 
 .dark .manageAPIKeyForm .apiField {
@@ -368,61 +466,28 @@ body.dark {
     margin-bottom: 6px;
 }
 
-.dark .manageAPIKeyForm .actionButtons .btn {
-    display: inline-block;
+.dark .manageAPIKeyForm .actionButtons .api-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+    min-width: 80px;
+    min-height: 32px;
     box-sizing: border-box;
 }
 
-.dark .manageAPIKeyForm .actionButtons .btn.btn-primary {
-    color: #fff;
-    background-color: #5dbb5a;
-    border-color: #5dbb5a;
-}
-
-.dark .manageAPIKeyForm .actionButtons .btn.btn-primary:hover,
-.dark .manageAPIKeyForm .actionButtons .btn.btn-primary:focus {
-    color: #fff;
-    background-color: #53a051;
-    border-color: #53a051;
-}
-
-.dark .manageAPIKeyForm .actionButtons .btn.btn-delete {
-    color: #5f6b7a;
-    background-color: #eceff3;
-    border: 1px solid #b5bfcb;
-}
-
-.dark .manageAPIKeyForm .actionButtons .btn.btn-delete:hover,
-.dark .manageAPIKeyForm .actionButtons .btn.btn-delete:focus {
-    color: #39424e;
-    background-color: #e2e7ee;
-    border-color: #a9b4c2;
-}
-
-.dark .manageAPIKeyForm .actionButtons .btn.nopointer,
-.dark .manageAPIKeyForm .actionButtons .btn.nopointer:hover,
-.dark .manageAPIKeyForm .actionButtons .btn.nopointer:focus {
-    opacity: 0.55;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-.dark .manageAPIKeyForm .status {
-    padding: 20px 20px 0;
-    text-align: center;
-}
-
-.dark .manageAPIKeyForm .status.status-success {
-    color: #53a051;
-}
-
-.dark .manageAPIKeyForm .status.status-error {
-    color: #dc4e41;
+.dark .manageAPIKeyForm .apiStatus {
+    margin-top: 20px;
 }
 
 .dark .manageAPIKeyForm .apiForm {
     width: 350px;
+    max-width: 100%;
     margin-top: 20px;
+}
+
+.dark .manageAPIKeyForm .apiField > .cim-sui-text {
+    width: 100%;
 }
 
 
@@ -448,7 +513,7 @@ body.dark {
 .dark input[type=password],
 .dark input[type=search],
 .dark input[type=tel],
-.dark input[type=text],
+.dark input[type=text]:not(.cim-sui-text-input),
 .dark input[type=time],
 .dark input[type=url],
 .dark input[type=week],
