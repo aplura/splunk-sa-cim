@@ -157,6 +157,30 @@
         },
         {
           "comment": {
+            "description": "A human-readable signature name, e.g. a threat category."
+          },
+          "fieldName": "signature",
+          "displayName": "signature",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The unique identifier or event code of the event signature."
+          },
+          "fieldName": "signature_id",
+          "displayName": "signature_id",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The virtual site which services the request, if applicable."
           },
           "fieldName": "site",

@@ -93,7 +93,7 @@
         },
         {
           "comment": {
-            "description": "The checksum of the patch package that was installed or attempted."
+            "description": "The checksum of the patch package that was installed or attempted. Deprecated in favor of 'file_hashes'."
           },
           "fieldName": "file_hash",
           "displayName": "file_hash",
@@ -101,6 +101,18 @@
           "fieldSearch": "",
           "required": false,
           "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The checksum of the patch package that was installed or attempted."
+          },
+          "fieldName": "file_hashes",
+          "displayName": "file_hashes",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
           "hidden": false
         },
         {

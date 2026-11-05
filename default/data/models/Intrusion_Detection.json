@@ -147,7 +147,7 @@
         },
         {
           "comment": {
-            "description": "A cryptographic identifier assigned to the file object affected by the event.",
+            "description": "A cryptographic identifier assigned to the file object affected by the event. Deprecated in favor of 'file_hashes'.",
             "ta_relevant": false
           },
           "fieldName": "file_hash",
@@ -156,6 +156,19 @@
           "fieldSearch": "",
           "required": false,
           "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "A cryptographic identifier assigned to the file object affected by the event.",
+            "ta_relevant": false
+          },
+          "fieldName": "file_hashes",
+          "displayName": "file_hashes",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
           "hidden": false
         },
         {

@@ -900,7 +900,7 @@
               },
               "fieldName": "src_port",
               "displayName": "src_port",
-              "type": "string",
+              "type": "number",
               "fieldSearch": "",
               "required": false,
               "multivalue": false,

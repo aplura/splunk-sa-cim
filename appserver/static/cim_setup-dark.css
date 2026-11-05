@@ -219,6 +219,120 @@ body.dark {
     margin-left: 0;
 }
 
+.dark .settingsForm.form-horizontal .control-group {
+    margin-bottom: 10px;
+}
+
+.dark .settingsForm.form-horizontal .control-label {
+    float: left;
+    width: 160px;
+    padding-top: 5px;
+    text-align: right;
+}
+
+.dark .settingsForm.form-horizontal .controls {
+    margin-left: 180px;
+}
+
+.dark .settingsForm.form-horizontal .controls > .help-block {
+    margin-left: 0;
+}
+
+.dark .settingsForm.form-horizontal .help-block {
+    margin-bottom: 0;
+    margin-left: 180px;
+}
+
+.dark .settingsForm.form-horizontal input + .help-block,
+.dark .settingsForm.form-horizontal select + .help-block,
+.dark .settingsForm.form-horizontal textarea + .help-block {
+    margin-top: 10px;
+}
+
+.dark .settingsForm.form-horizontal .controls > input[type="text"] {
+    display: inline-block;
+    width: 390px;
+}
+
+.dark .settingsForm.form-horizontal .controls > select {
+    display: inline-block;
+    width: auto;
+    min-width: 95px;
+    max-width: 220px;
+}
+
+.dark .settingsForm.form-horizontal .controls > input[type="checkbox"] {
+    margin-top: 2px;
+}
+
+.dark .settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    margin: 6px 0 0;
+    border: 1px solid #9da5b0;
+    border-radius: 2px;
+    background: #fff;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.dark .settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"]:checked {
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+}
+
+.dark .settingsForm.form-horizontal .controls > input.settings-checkbox[type="checkbox"]:disabled {
+    background-color: #f5f6f7;
+    border-color: #c3cbd4;
+    cursor: not-allowed;
+}
+
+.dark .settingsForm.form-horizontal .time-modifier-field {
+    display: inline-flex;
+    align-items: center;
+}
+
+.dark .settingsForm.form-horizontal .time-modifier-field .time-modifier-input {
+    display: inline-block;
+    width: 247px;
+    margin-right: 0;
+}
+
+.dark .settingsForm.form-horizontal .time-modifier-field .time-modifier-unit {
+    display: inline-block;
+    width: 95px;
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.dark .settingsForm.form-horizontal .indexes-whitelist-help.help-block {
+    max-width: 360px;
+}
+
+.dark #settings .settings-description-help .icon-alert,
+.dark .settingsForm.form-horizontal .indexes-whitelist-help .icon-alert {
+    margin-right: 4px;
+}
+
+.dark #settings .settings-description-help a .icon-external,
+.dark .settingsForm.form-horizontal .indexes-whitelist-help a .icon-external {
+    margin-left: 4px;
+}
+
+.dark #settings .settings-description-help {
+    line-height: 1.4;
+}
+
+.dark .settingsForm.form-horizontal .indexes-whitelist-help .example-text {
+    margin-left: 4px;
+}
+
 .dark .loading {
     width: 100%;
     text-align: center;
@@ -245,9 +359,65 @@ body.dark {
     margin: 2px;
 }
 
+.dark .manageAPIKeyForm .apiField {
+    margin-bottom: 16px;
+}
+
+.dark .manageAPIKeyForm .apiField label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.dark .manageAPIKeyForm .actionButtons .btn {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.dark .manageAPIKeyForm .actionButtons .btn.btn-primary {
+    color: #fff;
+    background-color: #5dbb5a;
+    border-color: #5dbb5a;
+}
+
+.dark .manageAPIKeyForm .actionButtons .btn.btn-primary:hover,
+.dark .manageAPIKeyForm .actionButtons .btn.btn-primary:focus {
+    color: #fff;
+    background-color: #53a051;
+    border-color: #53a051;
+}
+
+.dark .manageAPIKeyForm .actionButtons .btn.btn-delete {
+    color: #5f6b7a;
+    background-color: #eceff3;
+    border: 1px solid #b5bfcb;
+}
+
+.dark .manageAPIKeyForm .actionButtons .btn.btn-delete:hover,
+.dark .manageAPIKeyForm .actionButtons .btn.btn-delete:focus {
+    color: #39424e;
+    background-color: #e2e7ee;
+    border-color: #a9b4c2;
+}
+
+.dark .manageAPIKeyForm .actionButtons .btn.nopointer,
+.dark .manageAPIKeyForm .actionButtons .btn.nopointer:hover,
+.dark .manageAPIKeyForm .actionButtons .btn.nopointer:focus {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
 .dark .manageAPIKeyForm .status {
     padding: 20px 20px 0;
     text-align: center;
+}
+
+.dark .manageAPIKeyForm .status.status-success {
+    color: #53a051;
+}
+
+.dark .manageAPIKeyForm .status.status-error {
+    color: #dc4e41;
 }
 
 .dark .manageAPIKeyForm .apiForm {

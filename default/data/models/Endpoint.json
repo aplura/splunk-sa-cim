@@ -17,6 +17,58 @@
       "fields": [
         {
           "comment": {
+            "description": "The event timestamp expressed in Unix time.",
+            "ta_relevant": false
+          },
+          "fieldName": "_time",
+          "displayName": "_time",
+          "type": "timestamp",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The host associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "host",
+          "displayName": "host",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "source",
+          "displayName": "source",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source type associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "sourcetype",
+          "displayName": "sourcetype",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The time at which the network port started listening on the endpoint."
           },
           "fieldName": "creation_time",
@@ -445,6 +497,58 @@
       "displayName": "Processes",
       "parentName": "BaseSearch",
       "fields": [
+        {
+          "comment": {
+            "description": "The event timestamp expressed in Unix time.",
+            "ta_relevant": false
+          },
+          "fieldName": "_time",
+          "displayName": "_time",
+          "type": "timestamp",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The host associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "host",
+          "displayName": "host",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "source",
+          "displayName": "source",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source type associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "sourcetype",
+          "displayName": "sourcetype",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
         {
           "comment": {
             "description": "The action taken by the endpoint."
@@ -1037,6 +1141,58 @@
       "fields": [
         {
           "comment": {
+            "description": "The event timestamp expressed in Unix time.",
+            "ta_relevant": false
+          },
+          "fieldName": "_time",
+          "displayName": "_time",
+          "type": "timestamp",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The host associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "host",
+          "displayName": "host",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "source",
+          "displayName": "source",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source type associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "sourcetype",
+          "displayName": "sourcetype",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "The description of the service."
           },
           "fieldName": "description",
@@ -1543,6 +1699,58 @@
       "fields": [
         {
           "comment": {
+            "description": "The event timestamp expressed in Unix time.",
+            "ta_relevant": false
+          },
+          "fieldName": "_time",
+          "displayName": "_time",
+          "type": "timestamp",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The host associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "host",
+          "displayName": "host",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "source",
+          "displayName": "source",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source type associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "sourcetype",
+          "displayName": "sourcetype",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
             "ta_relevant": false
           },
@@ -1910,7 +2118,7 @@
           "outputFields": [
             {
               "comment": {
-                "description": "A cryptographic identifier assigned to the file object affected by the event.",
+                "description": "A cryptographic identifier assigned to the file object affected by the event. Deprecated in favor of 'file_hashes'.",
                 "recommended": true
               },
               "fieldName": "file_hash",
@@ -1923,6 +2131,26 @@
             }
           ],
           "expression": "if(isnull(file_hash) OR file_hash=\"\",\"unknown\",file_hash)"
+        },
+        {
+          "calculationID": "Endpoint_Filesystem_eval_file_hashes",
+          "calculationType": "Eval",
+          "outputFields": [
+            {
+              "comment": {
+                "description": "A cryptographic identifier assigned to the file object affected by the event.",
+                "recommended": true
+              },
+              "fieldName": "file_hashes",
+              "displayName": "file_hashes",
+              "type": "string",
+              "fieldSearch": "",
+              "required": false,
+              "multivalue": true,
+              "hidden": false
+            }
+          ],
+          "expression": "if(isnull(file_hashes) OR file_hashes=\"\",\"unknown\",file_hashes)"
         },
         {
           "calculationID": "Endpoint_Filesystem_eval_file_name",
@@ -2142,6 +2370,58 @@
       "displayName": "Registry",
       "parentName": "BaseSearch",
       "fields": [
+        {
+          "comment": {
+            "description": "The event timestamp expressed in Unix time.",
+            "ta_relevant": false
+          },
+          "fieldName": "_time",
+          "displayName": "_time",
+          "type": "timestamp",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The host associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "host",
+          "displayName": "host",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "source",
+          "displayName": "source",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The source type associated with the search.",
+            "ta_relevant": false
+          },
+          "fieldName": "sourcetype",
+          "displayName": "sourcetype",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
         {
           "comment": {
             "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",

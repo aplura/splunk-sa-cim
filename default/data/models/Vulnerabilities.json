@@ -17,11 +17,234 @@
       "fields": [
         {
           "comment": {
+            "description": "The type of component affected by the vulnerability, based on the NIST CPE 2.3 taxonomy. Corresponds to the CPE part attribute values: a (application), h (hardware), o (operating system).",
+            "expected_values": [
+              "application",
+              "hardware",
+              "operating system"
+            ]
+          },
+          "fieldName": "affected_component_type",
+          "displayName": "affected_component_type",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The name of the product affected by the vulnerability. Distinct from vendor_product, which identifies the scanning or reporting tool (e.g., AWS Inspector, Tenable Nessus). Use this field to capture the software or system that contains the CVE, not the tool that detected it."
+          },
+          "fieldName": "affected_product",
+          "displayName": "affected_product",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The specific version of the affected product (e.g., 1.0.0, 2.3.1). Provides granularity for scoping vulnerability impact to a specific release."
+          },
+          "fieldName": "affected_product_version",
+          "displayName": "affected_product_version",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
+          "hidden": false
+        },
+        {
+          "comment": {
             "description": "Numeric indicator of the common vulnerability scoring system."
           },
           "fieldName": "cvss",
           "displayName": "cvss",
           "type": "number",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Describes conditions beyond the attacker's control that must exist to exploit the vulnerability.",
+            "expected_values": [
+              "Low",
+              "High"
+            ]
+          },
+          "fieldName": "cvss_attack_complexity",
+          "displayName": "cvss_attack_complexity",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Reflects the context by which vulnerability exploitation is possible.",
+            "expected_values": [
+              "Network",
+              "Adjacent",
+              "Local",
+              "Physical"
+            ]
+          },
+          "fieldName": "cvss_attack_vector",
+          "displayName": "cvss_attack_vector",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Measures the impact to availability of the impacted component.",
+            "expected_values": [
+              "None",
+              "Low",
+              "High"
+            ]
+          },
+          "fieldName": "cvss_availability_impact",
+          "displayName": "cvss_availability_impact",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The CVSS base score. Distinct from the existing cvss field, which represents a composite or overall score. cvss_base_score specifically captures the base metric score as defined in the CVSS specification."
+          },
+          "fieldName": "cvss_base_score",
+          "displayName": "cvss_base_score",
+          "type": "number",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Measures the impact to confidentiality of information resources.",
+            "expected_values": [
+              "None",
+              "Low",
+              "High"
+            ]
+          },
+          "fieldName": "cvss_confidentiality_impact",
+          "displayName": "cvss_confidentiality_impact",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "CVSS sub-score reflecting the exploitability characteristics of the vulnerability."
+          },
+          "fieldName": "cvss_exploitability_score",
+          "displayName": "cvss_exploitability_score",
+          "type": "number",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "CVSS sub-score reflecting the potential impact of a successful exploit on the affected component."
+          },
+          "fieldName": "cvss_impact_score",
+          "displayName": "cvss_impact_score",
+          "type": "number",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Measures the impact to integrity of a successfully exploited vulnerability.",
+            "expected_values": [
+              "None",
+              "Low",
+              "High"
+            ]
+          },
+          "fieldName": "cvss_integrity_impact",
+          "displayName": "cvss_integrity_impact",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The level of privileges an attacker must possess before successfully exploiting the vulnerability.",
+            "expected_values": [
+              "None",
+              "Low",
+              "High"
+            ]
+          },
+          "fieldName": "cvss_privileges_required",
+          "displayName": "cvss_privileges_required",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Captures whether a vulnerability impacts resources beyond its means.",
+            "expected_values": [
+              "Unchanged",
+              "Changed"
+            ]
+          },
+          "fieldName": "cvss_scope",
+          "displayName": "cvss_scope",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Captures the requirement for a human user other than the attacker to participate in successful compromise.",
+            "expected_values": [
+              "None",
+              "Required"
+            ]
+          },
+          "fieldName": "cvss_user_interaction",
+          "displayName": "cvss_user_interaction",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The full CVSS vector string representing all base metrics in compact machine-readable format (e.g., CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)."
+          },
+          "fieldName": "cvss_vector_string",
+          "displayName": "cvss_vector_string",
+          "type": "string",
           "fieldSearch": "",
           "required": false,
           "multivalue": false,
@@ -100,6 +323,18 @@
           "fieldName": "dvc_priority",
           "displayName": "dvc_priority",
           "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "Indicates whether the vulnerability is listed in a known exploited vulnerabilities catalog (e.g., CISA KEV, VulnCheck KEV)."
+          },
+          "fieldName": "is_known_exploited",
+          "displayName": "is_known_exploited",
+          "type": "boolean",
           "fieldSearch": "",
           "required": false,
           "multivalue": false,
@@ -200,6 +435,30 @@
           "fieldName": "user_priority",
           "displayName": "user_priority",
           "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The timestamp when the CVE record was last modified in the vulnerability database (e.g., NVD)."
+          },
+          "fieldName": "vuln_modified_time",
+          "displayName": "vuln_modified_time",
+          "type": "timestamp",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The timestamp when the CVE was first published in the vulnerability database (e.g., NVD)."
+          },
+          "fieldName": "vuln_published_time",
+          "displayName": "vuln_published_time",
+          "type": "timestamp",
           "fieldSearch": "",
           "required": false,
           "multivalue": false,

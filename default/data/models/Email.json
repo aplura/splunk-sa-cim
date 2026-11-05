@@ -79,7 +79,7 @@
         },
         {
           "comment": {
-            "description": "The hashes for the files attached to the message, if any exist."
+            "description": "The hashes for the files attached to the message, if any exist. Deprecated in favor of 'file_hashes'."
           },
           "displayName": "file_hash",
           "fieldName": "file_hash",
@@ -87,6 +87,18 @@
           "fieldSearch": "",
           "required": false,
           "multivalue": false,
+          "hidden": false
+        },
+        {
+          "comment": {
+            "description": "The hashes for the files attached to the message, if any exist."
+          },
+          "displayName": "file_hashes",
+          "fieldName": "file_hashes",
+          "type": "string",
+          "fieldSearch": "",
+          "required": false,
+          "multivalue": true,
           "hidden": false
         },
         {
