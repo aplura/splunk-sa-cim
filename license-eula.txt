@@ -6,7 +6,7 @@ YOU WILL BE REQUIRED TO INDICATE YOUR AGREEMENT TO THESE TERMS AND CONDITIONS IN
 
 IF YOU AGREE TO THESE TERMS ON BEHALF OF A BUSINESS, YOU REPRESENT AND WARRANT THAT YOU HAVE AUTHORITY TO BIND THAT BUSINESS TO THIS AGREEMENT, AND YOUR AGREEMENT TO THESE TERMS WILL BE TREATED AS THE AGREEMENT OF THE BUSINESS. IN THAT EVENT, "YOU" AND "YOUR" REFER HEREIN TO THAT BUSINESS.
 
-"Splunk Developer API" means the documentation and functionality enabling  the creation of extensions to the Software. "Example Modules" means the  source code and binary form of examples that use the Splunk Developer  API.  
+"Splunk Developer API" means the documentation and functionality enabling  the creation of extensions to the Software. "Example Modules" means the  source code and binary form of examples that use the Splunk Developer  API.
 
 PURCHASED SOFTWARE TERM. Unless earlier terminated, this Agreement will be  in effect perpetually for any Purchased Software. "Term" means the period in  which the Agreement is in effect.
 
