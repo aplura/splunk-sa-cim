@@ -16,15 +16,15 @@ The official Splunk Documentation is located at http://docs.splunk.com/Documenta
 
 ## Version 8.8.0
 
-See file `v8.7.0-v8.8.0-changes.md`
+[Changes for 8.8.0 from 8.7.0](v8.7.0-v8.8.0-changes.md)
 
 ## Version 8.7.0
 
-See file `v8.6.0-v8.7.0-changes.md`
+[Changes for 8.7.0 from 8.6.0](v8.6.0-v8.7.0-changes.md)
 
 ## Version 8.6.0
 
-See file `v8.5.0-v8.6.0-changes.md`
+[Changes for 8.6.0 from 8.5.0](v8.5.0-v8.6.0-changes.md)
 
 ## Version 8.5.0
 
